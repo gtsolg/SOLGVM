@@ -5270,37 +5270,181 @@ __VM_STD_INSTR(sar8_reg_reg)
     BYTE shift = BREG(src) & __SH8_MASK;
     __CHECK_SHIFT(shift);
     BYTE first = BREG(dst);
-    BYTE result = first << shift;
+    BYTE result = first >> shift;
     __SET_CF_SR(first, shift);
     SET_FLAG_0(OF_MASK);
 
-    BREG(dst) = BREG(src);
+    BREG(dst) = result;
     return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_reg_imm)
 {
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    BREG(dst) = result;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_reg_rptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = __PTR_VAL(ptr, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    BREG(dst) = result;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_reg_iptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    DWORD  imm = __READ_IP(DWORD);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = __PTR_VAL(imm, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    BREG(dst) = result;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_iptr_reg)
 {
+    DWORD  imm = __READ_IP(DWORD);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(imm, BYTE);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    __PTR_VAL(imm, BYTE) = result;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_iptr_imm)
 {
+    DWORD dst = __READ_IP(DWORD);
+    BYTE  imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(dst, BYTE);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    __PTR_VAL(dst, BYTE) = result;
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(sar8_rptr_reg)
+{
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    __PTR_VAL(ptr, BYTE) = result;
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(sar8_rptr_imm)
+{
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first >> shift;
+    __SET_CF_SR(first, shift);
+    SET_FLAG_0(OF_MASK);
+
+    __PTR_VAL(ptr, BYTE) = result;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_reg_reg)
@@ -5329,6 +5473,16 @@ __VM_STD_INSTR(sar16_iptr_reg)
 }
 
 __VM_STD_INSTR(sar16_iptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(sar16_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(sar16_rptr_imm)
 {
 
 }
@@ -5363,6 +5517,16 @@ __VM_STD_INSTR(sar32_iptr_imm)
 
 }
 
+__VM_STD_INSTR(sar32_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(sar32_rptr_imm)
+{
+
+}
+
 __VM_STD_INSTR(sar64_reg_reg)
 {
 
@@ -5389,6 +5553,16 @@ __VM_STD_INSTR(sar64_iptr_reg)
 }
 
 __VM_STD_INSTR(sar64_iptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(sar64_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(sar64_rptr_imm)
 {
 
 }
