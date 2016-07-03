@@ -557,7 +557,7 @@ __VM_STD_INSTR_PROTO(xor64_iptr_imm);
 __VM_STD_INSTR_PROTO(xor64_rptr_reg);
 __VM_STD_INSTR_PROTO(xor64_rptr_imm);
 
-//
+
 
 __VM_STD_INSTR_PROTO(shl8_reg_reg);
 __VM_STD_INSTR_PROTO(shl8_reg_imm);
@@ -670,24 +670,32 @@ __VM_STD_INSTR_PROTO(sar8_reg_rptr);
 __VM_STD_INSTR_PROTO(sar8_reg_iptr);
 __VM_STD_INSTR_PROTO(sar8_iptr_reg);
 __VM_STD_INSTR_PROTO(sar8_iptr_imm);
+__VM_STD_INSTR_PROTO(sar8_rptr_reg);
+__VM_STD_INSTR_PROTO(sar8_rptr_imm);
 __VM_STD_INSTR_PROTO(sar16_reg_reg);
 __VM_STD_INSTR_PROTO(sar16_reg_imm);
 __VM_STD_INSTR_PROTO(sar16_reg_rptr);
 __VM_STD_INSTR_PROTO(sar16_reg_iptr);
 __VM_STD_INSTR_PROTO(sar16_iptr_reg);
 __VM_STD_INSTR_PROTO(sar16_iptr_imm);
+__VM_STD_INSTR_PROTO(sar16_rptr_reg);
+__VM_STD_INSTR_PROTO(sar16_rptr_imm);
 __VM_STD_INSTR_PROTO(sar32_reg_reg);
 __VM_STD_INSTR_PROTO(sar32_reg_imm);
 __VM_STD_INSTR_PROTO(sar32_reg_rptr);
 __VM_STD_INSTR_PROTO(sar32_reg_iptr);
 __VM_STD_INSTR_PROTO(sar32_iptr_reg);
 __VM_STD_INSTR_PROTO(sar32_iptr_imm);
+__VM_STD_INSTR_PROTO(sar32_rptr_reg);
+__VM_STD_INSTR_PROTO(sar32_rptr_imm);
 __VM_STD_INSTR_PROTO(sar64_reg_reg);
 __VM_STD_INSTR_PROTO(sar64_reg_imm);
 __VM_STD_INSTR_PROTO(sar64_reg_rptr);
 __VM_STD_INSTR_PROTO(sar64_reg_iptr);
 __VM_STD_INSTR_PROTO(sar64_iptr_reg);
 __VM_STD_INSTR_PROTO(sar64_iptr_imm);
+__VM_STD_INSTR_PROTO(sar64_rptr_reg);
+__VM_STD_INSTR_PROTO(sar64_rptr_imm);
 
 
 
