@@ -885,13 +885,21 @@ __VM_STD_INSTR_PROTO(jle64_iptr);
 
 
 __VM_STD_INSTR_PROTO(jo8_reg);
+__VM_STD_INSTR_PROTO(jo8_imm);
+__VM_STD_INSTR_PROTO(jo8_rptr);
+__VM_STD_INSTR_PROTO(jo8_iptr);
 __VM_STD_INSTR_PROTO(jo16_reg);
+__VM_STD_INSTR_PROTO(jo16_imm);
+__VM_STD_INSTR_PROTO(jo16_rptr);
+__VM_STD_INSTR_PROTO(jo16_iptr);
 __VM_STD_INSTR_PROTO(jo32_reg);
-__VM_STD_INSTR_PROTO(jo32_val);
+__VM_STD_INSTR_PROTO(jo32_imm);
+__VM_STD_INSTR_PROTO(jo32_rptr);
+__VM_STD_INSTR_PROTO(jo32_iptr);
 __VM_STD_INSTR_PROTO(jo64_reg);
-__VM_STD_INSTR_PROTO(jo_bptr);
-__VM_STD_INSTR_PROTO(jo_wptr);
-__VM_STD_INSTR_PROTO(jo_dptr);
-__VM_STD_INSTR_PROTO(jo_qptr);
+__VM_STD_INSTR_PROTO(jo64_imm);
+__VM_STD_INSTR_PROTO(jo64_rptr);
+__VM_STD_INSTR_PROTO(jo64_iptr);
+
 
 #endif
