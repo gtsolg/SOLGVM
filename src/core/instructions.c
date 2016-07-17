@@ -6421,38 +6421,139 @@ __VM_STD_INSTR(je64_iptr)
 
 __VM_STD_INSTR(jne8_reg)
 {
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0)
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jne8_imm)
+{
+    BYTE ptr = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0)
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jne8_rptr)
+{
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = __PTR_VAL(src, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0)
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jne8_iptr)
+{
+    reg_op imm = __READ_IP(reg_op);
+    DWORD  ptr = __PTR_VAL(imm, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0)
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne16_reg)
 {
+
+}
+
+__VM_STD_INSTR(jne16_imm)
+{
+
+}
+
+__VM_STD_INSTR(jne16_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jne16_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jne32_reg)
 {
+
 }
 
-__VM_STD_INSTR(jne32_val)
+__VM_STD_INSTR(jne32_imm)
 {
+
+}
+
+__VM_STD_INSTR(jne32_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jne32_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jne64_reg)
 {
+
 }
 
-__VM_STD_INSTR(jne_bptr)
+__VM_STD_INSTR(jne64_imm)
 {
+
 }
 
-__VM_STD_INSTR(jne_wptr)
+__VM_STD_INSTR(jne64_rptr)
 {
+
 }
 
-__VM_STD_INSTR(jne_dptr)
+__VM_STD_INSTR(jne64_iptr)
 {
-}
 
-__VM_STD_INSTR(jne_qptr)
-{
 }
 
 __VM_STD_INSTR(jge8_reg)
