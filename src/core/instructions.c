@@ -6159,35 +6159,129 @@ __VM_STD_INSTR(ror64_rptr_imm)
 
 __VM_STD_INSTR(jmp8_reg)
 {
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+    
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    core->IP = ptr;
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jmp8_imm)
+{
+    BYTE ptr = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    core->IP = ptr;
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jmp8_rptr)
+{
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = __PTR_VAL(src, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    core->IP = ptr;
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jmp8_iptr)
+{
+    reg_op imm = __READ_IP(reg_op);
+    DWORD  ptr = __PTR_VAL(imm, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    core->IP = ptr;
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp16_reg)
 {
+
+}
+
+__VM_STD_INSTR(jmp16_imm)
+{
+
+}
+
+__VM_STD_INSTR(jmp16_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jmp16_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jmp32_reg)
 {
+
 }
 
-__VM_STD_INSTR(jmp32_val)
+__VM_STD_INSTR(jmp32_imm)
 {
+
+}
+
+__VM_STD_INSTR(jmp32_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jmp32_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jmp64_reg)
 {
+
 }
 
-__VM_STD_INSTR(jmp_bptr)
+__VM_STD_INSTR(jmp64_imm)
 {
+
 }
 
-__VM_STD_INSTR(jmp_wptr)
+__VM_STD_INSTR(jmp64_rptr)
 {
+
 }
 
-__VM_STD_INSTR(jmp_dptr)
+__VM_STD_INSTR(jmp64_iptr)
 {
+
 }
+
 
 __VM_STD_INSTR(jmp_qptr)
 {

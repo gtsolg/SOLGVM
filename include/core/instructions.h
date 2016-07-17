@@ -8,6 +8,7 @@
 
 typedef int (*vm_instr_t)(__VM_STD_INSTR_ARGS_PROTO);
 // TODO: add intrinsics
+// add instruction counter
 __VM_STD_INSTR_PROTO(nop);
 __VM_STD_INSTR_PROTO(halt);
 
@@ -766,19 +767,25 @@ __VM_STD_INSTR_PROTO(ror64_iptr_reg);
 __VM_STD_INSTR_PROTO(ror64_iptr_imm);
 __VM_STD_INSTR_PROTO(ror64_rptr_reg);
 __VM_STD_INSTR_PROTO(ror64_rptr_imm);
-///////////
+
 
 
 __VM_STD_INSTR_PROTO(jmp8_reg);
+__VM_STD_INSTR_PROTO(jmp8_imm);
+__VM_STD_INSTR_PROTO(jmp8_rptr);
+__VM_STD_INSTR_PROTO(jmp8_iptr);
 __VM_STD_INSTR_PROTO(jmp16_reg);
+__VM_STD_INSTR_PROTO(jmp16_imm);
+__VM_STD_INSTR_PROTO(jmp16_rptr);
+__VM_STD_INSTR_PROTO(jmp16_iptr);
 __VM_STD_INSTR_PROTO(jmp32_reg);
-__VM_STD_INSTR_PROTO(jmp32_val);
+__VM_STD_INSTR_PROTO(jmp32_imm);
+__VM_STD_INSTR_PROTO(jmp32_rptr);
+__VM_STD_INSTR_PROTO(jmp32_iptr);
 __VM_STD_INSTR_PROTO(jmp64_reg);
-__VM_STD_INSTR_PROTO(jmp_bptr);
-__VM_STD_INSTR_PROTO(jmp_wptr);
-__VM_STD_INSTR_PROTO(jmp_dptr);
-__VM_STD_INSTR_PROTO(jmp_qptr);
-
+__VM_STD_INSTR_PROTO(jmp64_imm);
+__VM_STD_INSTR_PROTO(jmp64_rptr);
+__VM_STD_INSTR_PROTO(jmp64_iptr);
 
 
 __VM_STD_INSTR_PROTO(je8_reg);
