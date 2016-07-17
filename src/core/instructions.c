@@ -6832,38 +6832,143 @@ __VM_STD_INSTR(jl64_iptr)
 
 __VM_STD_INSTR(jle8_reg)
 {
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0
+        || GET_FLAG(SF_MASK, SF_POS) != GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jle8_imm)
+{
+    BYTE ptr = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0
+        || GET_FLAG(SF_MASK, SF_POS) != GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jle8_rptr)
+{
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = __PTR_VAL(src, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0
+        || GET_FLAG(SF_MASK, SF_POS) != GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jle8_iptr)
+{
+    reg_op imm = __READ_IP(reg_op);
+    DWORD  ptr = __PTR_VAL(imm, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) != 0
+        || GET_FLAG(SF_MASK, SF_POS) != GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle16_reg)
 {
+
+}
+
+__VM_STD_INSTR(jle16_imm)
+{
+
+}
+
+__VM_STD_INSTR(jle16_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jle16_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jle32_reg)
 {
+
 }
 
-__VM_STD_INSTR(jle32_val)
+__VM_STD_INSTR(jle32_imm)
 {
+
+}
+
+__VM_STD_INSTR(jle32_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jle32_iptr)
+{
+
 }
 
 __VM_STD_INSTR(jle64_reg)
 {
+
 }
 
-__VM_STD_INSTR(jle_bptr)
+__VM_STD_INSTR(jle64_imm)
 {
+
 }
 
-__VM_STD_INSTR(jle_wptr)
+__VM_STD_INSTR(jle64_rptr)
 {
+
 }
 
-__VM_STD_INSTR(jle_dptr)
+__VM_STD_INSTR(jle64_iptr)
 {
-}
 
-__VM_STD_INSTR(jle_qptr)
-{
 }
 
 __VM_STD_INSTR(jo8_reg)
