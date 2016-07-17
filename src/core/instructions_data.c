@@ -2,6 +2,8 @@
 
 #include <stdarg.h>
 
+#include "..\..\include\mem_manager.h"
+
 static struct instruction_data
 __init_data(vm_instr_t instruction, char* instr_name)
 {
