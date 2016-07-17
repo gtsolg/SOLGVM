@@ -7,7 +7,7 @@
 #define __VM_STD_INSTR(NAME) inline int NAME(__VM_STD_INSTR_ARGS_PROTO)
 
 typedef int (*vm_instr_t)(__VM_STD_INSTR_ARGS_PROTO);
-
+// TODO: add intrinsics
 __VM_STD_INSTR_PROTO(nop);
 __VM_STD_INSTR_PROTO(halt);
 
@@ -705,24 +705,32 @@ __VM_STD_INSTR_PROTO(rol8_reg_rptr);
 __VM_STD_INSTR_PROTO(rol8_reg_iptr);
 __VM_STD_INSTR_PROTO(rol8_iptr_reg);
 __VM_STD_INSTR_PROTO(rol8_iptr_imm);
+__VM_STD_INSTR_PROTO(rol8_rptr_reg);
+__VM_STD_INSTR_PROTO(rol8_rptr_imm);
 __VM_STD_INSTR_PROTO(rol16_reg_reg);
 __VM_STD_INSTR_PROTO(rol16_reg_imm);
 __VM_STD_INSTR_PROTO(rol16_reg_rptr);
 __VM_STD_INSTR_PROTO(rol16_reg_iptr);
 __VM_STD_INSTR_PROTO(rol16_iptr_reg);
 __VM_STD_INSTR_PROTO(rol16_iptr_imm);
+__VM_STD_INSTR_PROTO(rol16_rptr_reg);
+__VM_STD_INSTR_PROTO(rol16_rptr_imm);
 __VM_STD_INSTR_PROTO(rol32_reg_reg);
 __VM_STD_INSTR_PROTO(rol32_reg_imm);
 __VM_STD_INSTR_PROTO(rol32_reg_rptr);
 __VM_STD_INSTR_PROTO(rol32_reg_iptr);
 __VM_STD_INSTR_PROTO(rol32_iptr_reg);
 __VM_STD_INSTR_PROTO(rol32_iptr_imm);
+__VM_STD_INSTR_PROTO(rol32_rptr_reg);
+__VM_STD_INSTR_PROTO(rol32_rptr_imm);
 __VM_STD_INSTR_PROTO(rol64_reg_reg);
 __VM_STD_INSTR_PROTO(rol64_reg_imm);
 __VM_STD_INSTR_PROTO(rol64_reg_rptr);
 __VM_STD_INSTR_PROTO(rol64_reg_iptr);
 __VM_STD_INSTR_PROTO(rol64_iptr_reg);
 __VM_STD_INSTR_PROTO(rol64_iptr_imm);
+__VM_STD_INSTR_PROTO(rol64_rptr_reg);
+__VM_STD_INSTR_PROTO(rol64_rptr_imm);
 
 
 
@@ -732,24 +740,32 @@ __VM_STD_INSTR_PROTO(ror8_reg_rptr);
 __VM_STD_INSTR_PROTO(ror8_reg_iptr);
 __VM_STD_INSTR_PROTO(ror8_iptr_reg);
 __VM_STD_INSTR_PROTO(ror8_iptr_imm);
+__VM_STD_INSTR_PROTO(ror8_rptr_reg);
+__VM_STD_INSTR_PROTO(ror8_rptr_imm);
 __VM_STD_INSTR_PROTO(ror16_reg_reg);
 __VM_STD_INSTR_PROTO(ror16_reg_imm);
 __VM_STD_INSTR_PROTO(ror16_reg_rptr);
 __VM_STD_INSTR_PROTO(ror16_reg_iptr);
 __VM_STD_INSTR_PROTO(ror16_iptr_reg);
 __VM_STD_INSTR_PROTO(ror16_iptr_imm);
+__VM_STD_INSTR_PROTO(ror16_rptr_reg);
+__VM_STD_INSTR_PROTO(ror16_rptr_imm);
 __VM_STD_INSTR_PROTO(ror32_reg_reg);
 __VM_STD_INSTR_PROTO(ror32_reg_imm);
 __VM_STD_INSTR_PROTO(ror32_reg_rptr);
 __VM_STD_INSTR_PROTO(ror32_reg_iptr);
 __VM_STD_INSTR_PROTO(ror32_iptr_reg);
 __VM_STD_INSTR_PROTO(ror32_iptr_imm);
+__VM_STD_INSTR_PROTO(ror32_rptr_reg);
+__VM_STD_INSTR_PROTO(ror32_rptr_imm);
 __VM_STD_INSTR_PROTO(ror64_reg_reg);
 __VM_STD_INSTR_PROTO(ror64_reg_imm);
 __VM_STD_INSTR_PROTO(ror64_reg_rptr);
 __VM_STD_INSTR_PROTO(ror64_reg_iptr);
 __VM_STD_INSTR_PROTO(ror64_iptr_reg);
 __VM_STD_INSTR_PROTO(ror64_iptr_imm);
+__VM_STD_INSTR_PROTO(ror64_rptr_reg);
+__VM_STD_INSTR_PROTO(ror64_rptr_imm);
 ///////////
 
 
