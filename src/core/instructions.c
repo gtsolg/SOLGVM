@@ -1,5 +1,7 @@
 #include "..\..\include\core\instructions.h"
 
+#include <intrin.h>
+
 #include "..\..\include\external_api.h"
 #include "..\..\include\errors.h"
 
@@ -145,6 +147,8 @@
     else                        \
         SET_FLAG_0(OF_MASK)
 
+#define __ROL(VAL, SHIFT) (VAL << (SHIFT)) | (VAL >> (sizeof(VAL) * 8 - (SHIFT)))
+#define __ROR(VAL, SHIFT) __ROL(VAL, sizeof(VAL) * 8 - SHIFT)
 
 __VM_STD_INSTR(nop)
 {
@@ -5569,32 +5573,175 @@ __VM_STD_INSTR(sar64_rptr_imm)
 
 __VM_STD_INSTR(rol8_reg_reg)
 {
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+
+    BREG(dst) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_reg_imm)
 {
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+
+    BREG(dst) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_reg_rptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = __PTR_VAL(ptr, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first << shift;
+
+    BREG(dst) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_reg_iptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    DWORD  imm = __READ_IP(DWORD);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = __PTR_VAL(imm, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first << shift;
+
+    BREG(dst) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_iptr_reg)
 {
+    DWORD  imm = __READ_IP(DWORD);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(imm, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(imm, BYTE) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_iptr_imm)
 {
+    DWORD dst = __READ_IP(DWORD);
+    BYTE  imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(dst, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(dst, BYTE) = __ROL(first, shift);
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(rol8_rptr_reg)
+{
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(ptr, BYTE) = __ROL(first, shift);
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(rol8_rptr_imm)
+{
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(ptr, BYTE) = __ROL(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_reg_reg)
@@ -5623,6 +5770,16 @@ __VM_STD_INSTR(rol16_iptr_reg)
 }
 
 __VM_STD_INSTR(rol16_iptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(rol16_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(rol16_rptr_imm)
 {
 
 }
@@ -5657,6 +5814,16 @@ __VM_STD_INSTR(rol32_iptr_imm)
 
 }
 
+__VM_STD_INSTR(rol32_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(rol32_rptr_imm)
+{
+
+}
+
 __VM_STD_INSTR(rol64_reg_reg)
 {
 
@@ -5687,34 +5854,187 @@ __VM_STD_INSTR(rol64_iptr_imm)
 
 }
 
-__VM_STD_INSTR(ror8_reg_reg)
+__VM_STD_INSTR(rol64_rptr_reg)
 {
 
+}
+
+__VM_STD_INSTR(rol64_rptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(ror8_reg_reg)
+{
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+
+    BREG(dst) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_reg_imm)
 {
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+
+    BREG(dst) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_reg_rptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = __PTR_VAL(ptr, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first << shift;
+
+    BREG(dst) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_reg_iptr)
 {
+    reg_op dst = __READ_IP(reg_op);
+    DWORD  imm = __READ_IP(DWORD);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = __PTR_VAL(imm, BYTE) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = BREG(dst);
+    BYTE result = first << shift;
+
+    BREG(dst) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_iptr_reg)
 {
+    DWORD  imm = __READ_IP(DWORD);
+    reg_op src = __READ_IP(reg_op);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+    __CHECK_MEM(imm);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(imm, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(imm, BYTE) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_iptr_imm)
 {
+    DWORD dst = __READ_IP(DWORD);
+    BYTE  imm = __READ_IP(BYTE);
 
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(dst);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(dst, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(dst, BYTE) = __ROR(first, shift);
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(ror8_rptr_reg)
+{
+    reg_op dst = __READ_IP(reg_op);
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = BREG(src) & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(ptr, BYTE) = __ROR(first, shift);
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(ror8_rptr_imm)
+{
+    reg_op dst = __READ_IP(reg_op);
+    BYTE   imm = __READ_IP(BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(dst);
+#endif
+
+    DWORD ptr = BREG(dst);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    BYTE shift = imm & __SH8_MASK;
+    __CHECK_SHIFT(shift);
+    BYTE first = __PTR_VAL(ptr, BYTE);
+    BYTE result = first << shift;
+
+    __PTR_VAL(ptr, BYTE) = __ROR(first, shift);
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_reg_reg)
@@ -5743,6 +6063,16 @@ __VM_STD_INSTR(ror16_iptr_reg)
 }
 
 __VM_STD_INSTR(ror16_iptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(ror16_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(ror16_rptr_imm)
 {
 
 }
@@ -5777,6 +6107,16 @@ __VM_STD_INSTR(ror32_iptr_imm)
 
 }
 
+__VM_STD_INSTR(ror32_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(ror32_rptr_imm)
+{
+
+}
+
 __VM_STD_INSTR(ror64_reg_reg)
 {
 
@@ -5803,6 +6143,16 @@ __VM_STD_INSTR(ror64_iptr_reg)
 }
 
 __VM_STD_INSTR(ror64_iptr_imm)
+{
+
+}
+
+__VM_STD_INSTR(ror64_rptr_reg)
+{
+
+}
+
+__VM_STD_INSTR(ror64_rptr_imm)
 {
 
 }
