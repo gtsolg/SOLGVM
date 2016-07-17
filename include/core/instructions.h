@@ -788,15 +788,23 @@ __VM_STD_INSTR_PROTO(jmp64_rptr);
 __VM_STD_INSTR_PROTO(jmp64_iptr);
 
 
+
 __VM_STD_INSTR_PROTO(je8_reg);
+__VM_STD_INSTR_PROTO(je8_imm);
+__VM_STD_INSTR_PROTO(je8_rptr);
+__VM_STD_INSTR_PROTO(je8_iptr);
 __VM_STD_INSTR_PROTO(je16_reg);
+__VM_STD_INSTR_PROTO(je16_imm);
+__VM_STD_INSTR_PROTO(je16_rptr);
+__VM_STD_INSTR_PROTO(je16_iptr);
 __VM_STD_INSTR_PROTO(je32_reg);
-__VM_STD_INSTR_PROTO(je32_val);
+__VM_STD_INSTR_PROTO(je32_imm);
+__VM_STD_INSTR_PROTO(je32_rptr);
+__VM_STD_INSTR_PROTO(je32_iptr);
 __VM_STD_INSTR_PROTO(je64_reg);
-__VM_STD_INSTR_PROTO(je_bptr);
-__VM_STD_INSTR_PROTO(je_wptr);
-__VM_STD_INSTR_PROTO(je_dptr);
-__VM_STD_INSTR_PROTO(je_qptr);
+__VM_STD_INSTR_PROTO(je64_imm);
+__VM_STD_INSTR_PROTO(je64_rptr);
+__VM_STD_INSTR_PROTO(je64_iptr);
 
 
 
