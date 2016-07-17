@@ -828,14 +828,21 @@ __VM_STD_INSTR_PROTO(jne64_iptr);
 
 
 __VM_STD_INSTR_PROTO(jge8_reg);
+__VM_STD_INSTR_PROTO(jge8_imm);
+__VM_STD_INSTR_PROTO(jge8_rptr);
+__VM_STD_INSTR_PROTO(jge8_iptr);
 __VM_STD_INSTR_PROTO(jge16_reg);
+__VM_STD_INSTR_PROTO(jge16_imm);
+__VM_STD_INSTR_PROTO(jge16_rptr);
+__VM_STD_INSTR_PROTO(jge16_iptr);
 __VM_STD_INSTR_PROTO(jge32_reg);
-__VM_STD_INSTR_PROTO(jge32_val);
+__VM_STD_INSTR_PROTO(jge32_imm);
+__VM_STD_INSTR_PROTO(jge32_rptr);
+__VM_STD_INSTR_PROTO(jge32_iptr);
 __VM_STD_INSTR_PROTO(jge64_reg);
-__VM_STD_INSTR_PROTO(jge_bptr);
-__VM_STD_INSTR_PROTO(jge_wptr);
-__VM_STD_INSTR_PROTO(jge_dptr);
-__VM_STD_INSTR_PROTO(jge_qptr);
+__VM_STD_INSTR_PROTO(jge64_imm);
+__VM_STD_INSTR_PROTO(jge64_rptr);
+__VM_STD_INSTR_PROTO(jge64_iptr);
 
 
 
