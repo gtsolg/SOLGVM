@@ -65,10 +65,10 @@
         SET_FLAG_0(CF_MASK)
 
 // gets bit at bit_pos position
-#define __GET_BIT(UNSIGNED, BIT_POS) ((UNSIGNED >> BIT_POS) & 1)
+#define __GET_BIT(UNSIGNED, BIT_POS) (((UNSIGNED) >> (BIT_POS)) & 1)
 
 // gets most left bit of value
-#define __SIGN_BIT(UNSIGNED) (UNSIGNED >> (sizeof(UNSIGNED) * 8 - 1))
+#define __SIGN_BIT(UNSIGNED) ((UNSIGNED) >> (sizeof(UNSIGNED) * 8 - 1))
 
 // result = first + second
 // sets of = 1 if result is neg while first & sec is pos
@@ -429,178 +429,222 @@ __VM_STD_INSTR(mov8_reg_segreg)
 
 __VM_STD_INSTR(mov16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_segimm_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_segimm_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_reg_segimm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_segreg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_segreg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov16_reg_segreg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_segimm_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_segimm_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_segimm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_segreg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_segreg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_segreg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_reg_sreg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov32_sreg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_segimm_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_segimm_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_segimm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_segreg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_segreg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mov64_reg_segreg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg8_reg_reg)
@@ -692,77 +736,77 @@ __VM_STD_INSTR(xchg8_rptr_reg)
 
 __VM_STD_INSTR(xchg16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xchg64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push8_reg)
@@ -845,77 +889,77 @@ __VM_STD_INSTR(push8_iptr)
 
 __VM_STD_INSTR(push16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push16_flags)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push16_eflags)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push32_seg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(push64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop8_reg)
@@ -980,62 +1024,62 @@ __VM_STD_INSTR(pop8_iptr)
 
 __VM_STD_INSTR(pop16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop16_flags)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop16_eflags)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop32_seg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(pop64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx16_reg_reg)
@@ -1091,32 +1135,32 @@ __VM_STD_INSTR(movsx16_reg_iptr)
 
 __VM_STD_INSTR(movsx32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movsx64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx16_reg_reg)
@@ -1172,32 +1216,32 @@ __VM_STD_INSTR(movzx16_reg_iptr)
 
 __VM_STD_INSTR(movzx32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(movzx64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add8_reg_reg)
@@ -1398,98 +1442,122 @@ __VM_STD_INSTR(add8_rptr_imm)
 
 __VM_STD_INSTR(add16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(add64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub8_reg_reg)
@@ -1690,98 +1758,122 @@ __VM_STD_INSTR(sub8_rptr_imm)
 
 __VM_STD_INSTR(sub16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sub64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul8_reg_reg)
@@ -1958,98 +2050,122 @@ __VM_STD_INSTR(mul8_rptr_imm)
 
 __VM_STD_INSTR(mul16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mul64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul8_reg_reg)
@@ -2226,98 +2342,122 @@ __VM_STD_INSTR(imul8_rptr_imm)
 
 __VM_STD_INSTR(imul16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imul64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div8_reg_reg)
@@ -2478,98 +2618,122 @@ __VM_STD_INSTR(div8_rptr_imm)
 
 __VM_STD_INSTR(div16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(div64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv8_reg_reg)
@@ -2730,98 +2894,122 @@ __VM_STD_INSTR(idiv8_rptr_imm)
 
 __VM_STD_INSTR(idiv16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(idiv64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod8_reg_reg)
@@ -2982,98 +3170,122 @@ __VM_STD_INSTR(mod8_rptr_imm)
 
 __VM_STD_INSTR(mod16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(mod64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod8_reg_reg)
@@ -3234,98 +3446,122 @@ __VM_STD_INSTR(imod8_rptr_imm)
 
 __VM_STD_INSTR(imod16_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod16_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod32_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_reg_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_reg_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_reg_rptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_reg_iptr)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_iptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_iptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_rptr_reg)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(imod64_rptr_imm)
 {
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and8_reg_reg)
@@ -3513,122 +3749,122 @@ __VM_STD_INSTR(and8_rptr_imm)
 
 __VM_STD_INSTR(and16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(and64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or8_reg_reg)
@@ -3816,122 +4052,122 @@ __VM_STD_INSTR(or8_rptr_imm)
 
 __VM_STD_INSTR(or16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(or64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not8_reg)
@@ -3981,47 +4217,47 @@ __VM_STD_INSTR(not8_rptr)
 
 __VM_STD_INSTR(not16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(not64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor8_reg_reg)
@@ -4209,122 +4445,122 @@ __VM_STD_INSTR(xor8_rptr_imm)
 
 __VM_STD_INSTR(xor16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(xor64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl8_reg_reg)
@@ -4520,122 +4756,122 @@ __VM_STD_INSTR(shl8_rptr_imm)
 
 __VM_STD_INSTR(shl16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shl64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr8_reg_reg)
@@ -4831,122 +5067,122 @@ __VM_STD_INSTR(shr8_rptr_imm)
 
 __VM_STD_INSTR(shr16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(shr64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal8_reg_reg)
@@ -5142,122 +5378,122 @@ __VM_STD_INSTR(sal8_rptr_imm)
 
 __VM_STD_INSTR(sal16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sal64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar8_reg_reg)
@@ -5453,122 +5689,122 @@ __VM_STD_INSTR(sar8_rptr_imm)
 
 __VM_STD_INSTR(sar16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(sar64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol8_reg_reg)
@@ -5746,122 +5982,122 @@ __VM_STD_INSTR(rol8_rptr_imm)
 
 __VM_STD_INSTR(rol16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(rol64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror8_reg_reg)
@@ -6039,122 +6275,122 @@ __VM_STD_INSTR(ror8_rptr_imm)
 
 __VM_STD_INSTR(ror16_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror16_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror32_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_reg_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_reg_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_reg_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_reg_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_iptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_iptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_rptr_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(ror64_rptr_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp8_reg)
@@ -6224,62 +6460,62 @@ __VM_STD_INSTR(jmp8_iptr)
 
 __VM_STD_INSTR(jmp16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jmp64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je8_reg)
@@ -6361,62 +6597,62 @@ __VM_STD_INSTR(je8_iptr)
 
 __VM_STD_INSTR(je16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(je64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne8_reg)
@@ -6498,62 +6734,62 @@ __VM_STD_INSTR(jne8_iptr)
 
 __VM_STD_INSTR(jne16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jne64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg8_reg)
@@ -6639,62 +6875,62 @@ __VM_STD_INSTR(jg8_iptr)
 
 __VM_STD_INSTR(jg16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jg64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge8_reg)
@@ -6776,62 +7012,62 @@ __VM_STD_INSTR(jge8_iptr)
 
 __VM_STD_INSTR(jge16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jge64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl8_reg)
@@ -6913,62 +7149,62 @@ __VM_STD_INSTR(jl8_iptr)
 
 __VM_STD_INSTR(jl16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jl64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle8_reg)
@@ -7054,62 +7290,62 @@ __VM_STD_INSTR(jle8_iptr)
 
 __VM_STD_INSTR(jle16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jle64_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo8_reg)
@@ -7191,60 +7427,60 @@ __VM_STD_INSTR(jo8_iptr)
 
 __VM_STD_INSTR(jo16_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo16_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo16_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo16_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo32_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo32_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo32_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo32_iptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo64_reg)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo64_imm)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo64_rptr)
 {
-
+    return NO_ERR;
 }
 
 __VM_STD_INSTR(jo64_iptr)
 {
-
+    return NO_ERR;
 }
