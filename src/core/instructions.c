@@ -6556,6 +6556,147 @@ __VM_STD_INSTR(jne64_iptr)
 
 }
 
+__VM_STD_INSTR(jg8_reg)
+{
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = BREG(src);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) == 0
+        && GET_FLAG(SF_MASK, SF_POS) == GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jg8_imm)
+{
+    BYTE ptr = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) == 0
+        && GET_FLAG(SF_MASK, SF_POS) == GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jg8_rptr)
+{
+    reg_op src = __READ_IP(reg_op);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_REG(src);
+#endif
+
+    DWORD ptr = __PTR_VAL(src, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) == 0
+        && GET_FLAG(SF_MASK, SF_POS) == GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jg8_iptr)
+{
+    reg_op imm = __READ_IP(reg_op);
+    DWORD  ptr = __PTR_VAL(imm, BYTE);
+
+#ifndef VM_INSTRUCTIONS_NO_CHECK
+    __CHECK_IP;
+    __CHECK_MEM(ptr);
+#endif
+
+    if (GET_FLAG(ZF_MASK, ZF_POS) == 0
+        && GET_FLAG(SF_MASK, SF_POS) == GET_FLAG(OF_MASK, OF_POS))
+    {
+        core->IP = ptr;
+    }
+    return NO_ERR;
+}
+
+__VM_STD_INSTR(jg16_reg)
+{
+
+}
+
+__VM_STD_INSTR(jg16_imm)
+{
+
+}
+
+__VM_STD_INSTR(jg16_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jg16_iptr)
+{
+
+}
+
+__VM_STD_INSTR(jg32_reg)
+{
+
+}
+
+__VM_STD_INSTR(jg32_imm)
+{
+
+}
+
+__VM_STD_INSTR(jg32_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jg32_iptr)
+{
+
+}
+
+__VM_STD_INSTR(jg64_reg)
+{
+
+}
+
+__VM_STD_INSTR(jg64_imm)
+{
+
+}
+
+__VM_STD_INSTR(jg64_rptr)
+{
+
+}
+
+__VM_STD_INSTR(jg64_iptr)
+{
+
+}
+
 __VM_STD_INSTR(jge8_reg)
 {
     reg_op src = __READ_IP(reg_op);
